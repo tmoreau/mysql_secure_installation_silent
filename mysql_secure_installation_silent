@@ -91,13 +91,7 @@ basic_single_escape () {
 
 make_config() {
     echo "# mysql_secure_installation config file" >$config
-    echo "[mysql]" >>$config
-    echo "user=root" >>$config
-    esc_pass=`basic_single_escape "$rootpass"`
-    echo "password='$esc_pass'" >>$config
-    [ -f '/etc/my.cnf' ] && grep '^socket[[:space:]]*=' /etc/my.cnf | tail -1 >>$config
-    echo ''
-    echo "[xtrabackup]" >>$config
+    echo "[client]" >>$config
     echo "user=root" >>$config
     esc_pass=`basic_single_escape "$rootpass"`
     echo "password='$esc_pass'" >>$config
